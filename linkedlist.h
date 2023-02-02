@@ -19,6 +19,7 @@ void node_delete(Node *node);
 
 LinkedList *list_construct();
 void list_add_left(LinkedList *lst, int value);
+void list_add_sorted(LinkedList *lst, int value);
 int list_pop_left(LinkedList *lst);
 int list_get_left(LinkedList *lst);
 void list_print(LinkedList *lst);

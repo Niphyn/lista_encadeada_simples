@@ -6,11 +6,11 @@ int main()
 {
     LinkedList *lst = list_construct();
 
-    list_add_left(lst, 3);
-    list_add_left(lst, 1);
-    list_add_left(lst, 5);
-    list_add_left(lst, 7);
-    list_add_left(lst, -2);
+    list_add_sorted(lst, 3);
+    list_add_sorted(lst, 1);
+    list_add_sorted(lst, 5);
+    list_add_sorted(lst, 7);
+    list_add_sorted(lst, -2);
 
     list_print(lst);
     printf("\n");

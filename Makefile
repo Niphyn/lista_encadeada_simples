@@ -3,3 +3,7 @@ all:
 	
 clean:
 	rm -f main 
+run:
+	./main
+val:
+	valgrind --leak-check=full --show-leak-kinds=all ./main

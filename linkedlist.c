@@ -30,8 +30,40 @@ void list_add_left(LinkedList *lst, int value)
     lst->size++;
 }
 
+void list_add_sorted(LinkedList *lst, int value){
+
+    if(lst->size < 1){
+        lst->head = node_construct(value, lst->head);
+    }else{
+
+        Node *next_node,*left_node,*right_node,*new_node;
+        
+        next_node = lst->head;
+        right_node = lst->head;
+        left_node = NULL;
+
+        while(next_node != NULL){
+            if((next_node->value) < value){
+                left_node = next_node;
+                right_node = next_node->next;
+            }
+            next_node = next_node->next;
+        }
+
+        if(left_node == NULL){
+           lst->head = node_construct(value, lst->head);
+        }else{
+            new_node = node_construct(value, right_node);
+            left_node->next = new_node;
+        }
+    }
+
+    lst->size++;
+}
+
 int list_pop_left(LinkedList *lst)
 {
+    printf("Deletando\n");
     if (lst->size < 1)
         exit(printf("Error: Trying to pop elements in an empty linkedlist.\n"));
 
@@ -69,6 +101,7 @@ void list_delete(LinkedList *lst)
 {
     // do not use lst->size in the loop below becasue
     // pop_left decrease size.
+    printf("size: %d\n",lst->size);
     int size = lst->size;
 
     for (int i = 0; i < size; i++)
